@@ -24,7 +24,9 @@ steps:
       '--service-account', 
       'hackaton-sa@squad-b1.iam.gserviceaccount.com',
       '--port',
-      '8080'
+      '8080',
+      '--set-cors-headers',
+      'Access-Control-Allow-Origin=*,Access-Control-Allow-Methods=GET,POST,PUT,DELETE,OPTIONS'
 
 
     ]
