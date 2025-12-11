@@ -17,11 +17,11 @@ const initialState: DeviceState = {
 export const DeviceStore = signalStore(
   { providedIn: 'root' },
   withState(initialState),
-  withComputed(({ devices }) => ({
+  withComputed(({ devices }: { devices: any }) => ({
     devicesCount: computed(() => devices().length),
-    sortedDevices: computed(() => [...devices()].sort((a, b) => a.name.localeCompare(b.name)))
+    sortedDevices: computed(() => [...devices()].sort((a: Device, b: Device) => a.name.localeCompare(b.name)))
 })),
-  withMethods((store) => ({
+  withMethods((store: any) => ({
     setDevices(devices: Device[]) {
       patchState(store, { devices, loading: false, error: null });
     },
@@ -35,12 +35,12 @@ export const DeviceStore = signalStore(
       const devices = [...store.devices(), device];
       patchState(store, { devices, loading: false, error: null })
     },
-    updateDevice(id: number, updates: Partial<Device>) {
-        const devices = store.devices().map(d => Number(d.id) === id ? {...d, updates} : d);
+    updateDevice(id: string, updates: Partial<Device>) {
+        const devices = store.devices().map((d: Device) => d.id === id ? {...d, updates} : d);
         patchState(store, { devices })
     },
-    removeDevice(id: number) {
-        const devices = store.devices().filter(d => Number(d.id) !== id);
+    removeDevice(id: string) {
+        const devices = store.devices().filter((d: Device) => d.id !== id);
         patchState(store, { devices })
     }
   }))

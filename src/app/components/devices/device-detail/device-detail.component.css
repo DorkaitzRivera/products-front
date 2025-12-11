@@ -1,0 +1,34 @@
+.device-card {
+  max-width: 600px;
+  margin: 2rem auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.device-card img {
+  max-height: 400px;
+  object-fit: cover;
+}
+
+.device-details {
+  margin-top: 1rem;
+}
+
+.device-details p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+mat-card-actions {
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.no-device {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+  color: #666;
+}

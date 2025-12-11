@@ -1,6 +1,25 @@
-<div>
-    <h2>{{device()!.name}}</h2>
-    <p>{{device()?.price}}</p>
-    <p>{{device()?.brand}}</p>
-    <p>Dispositivo con sistema operativo {{device()?.operating_system}}.</p>
+<mat-card class="device-card" *ngIf="device()">
+  <mat-card-header>
+    <mat-card-title>{{ device()!.name }}</mat-card-title>
+    <mat-card-subtitle>{{ device()!.brand }}</mat-card-subtitle>
+  </mat-card-header>
+
+  <img mat-card-image [src]="device()!.image_url" [alt]="device()!.name">
+
+  <mat-card-content>
+    <div class="device-details">
+      <p><strong>Sistema Operativo:</strong> {{ device()!.operating_system }}</p>
+      <p><strong>Precio:</strong> {{ device()!.price | currency:'EUR' }}</p>
+      <p><strong>Fecha de Lanzamiento:</strong> {{ device()!.release_date | date:'dd/MM/yyyy' }}</p>
+    </div>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="onEdit()">Editar</button>
+    <button mat-raised-button color="warn" (click)="onDelete()">Eliminar</button>
+  </mat-card-actions>
+</mat-card>
+
+<div *ngIf="!device()" class="no-device">
+  <p>No se encontró el dispositivo</p>
 </div>

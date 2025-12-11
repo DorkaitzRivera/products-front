@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 export class DeviceService {
   private store = inject(DeviceStore);
   private http = inject(HttpClient);
-  private productsUrl = 'http://localhost:3000/products'
+  private productsUrl = 'https://backend-820870935610.europe-southwest1.run.app/api/v1/products'
 
   getDevices(): Observable<Device[]> {
     if (this.store.devices().length > 0) {

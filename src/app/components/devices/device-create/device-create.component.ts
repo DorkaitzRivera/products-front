@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DeviceService } from '../device.service';
 
@@ -17,23 +17,27 @@ export class DeviceCreateComponent {
   private fb = inject(FormBuilder);
   public deviceForm = this.fb.group({
     name: ['', Validators.required],
-    description: ['', Validators.required],
+    brand: ['', Validators.required],
     price: [0, [Validators.required, Validators.min(1)]],
-    stock: [0, [Validators.required, Validators.min(0)]],
+    operating_system: ['', Validators.required],
+    release_date: [''],
+    image_url: ['']
   })
 
   onSubmit() {
-    if (this.productForm.valid) {
-      const newProduct = this.productForm.value as {
+    if (this.deviceForm.valid) {
+      const newDevice = this.deviceForm.value as {
         name: string,
-        description: string,
+        brand: string,
         price: number,
-        stock: number,
+        operating_system: string,
+        release_date: string,
+        image_url: string,
       }
 
-      this.productService.addProduct(newProduct).subscribe({
+      this.deviceService.addDevice(newDevice).subscribe({
         next: () => {
-          console.log('Se ha creado el producto:', newProduct);
+          console.log('Se ha creado el dispositivo:', newDevice);
           this.router.navigate(['/products'])
         },
         error: (error) => console.log('Se ha producido el error:', error)
