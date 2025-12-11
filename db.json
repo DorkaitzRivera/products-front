@@ -1,0 +1,40 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Portátil Ultraligero",
+      "brand": "Portátil de 14 pulgadas con procesador i7 y 16GB de RAM.",
+      "price": 1250.99,
+      "operating_system": "Android",
+      "release_date": "07-12-2025",
+      "image_url": "photo"
+    },
+    {
+      "id": 2,
+      "name": "Portátil Ultraligero",
+      "brand": "Portátil de 14 pulgadas con procesador i7 y 16GB de RAM.",
+      "price": 1250.99,
+      "operating_system": "Android",
+      "release_date": "07-12-2025",
+      "image_url": "photo"
+    },
+    {
+      "id": 3,
+      "name": "Portátil Ultraligero",
+      "brand": "Portátil de 14 pulgadas con procesador i7 y 16GB de RAM.",
+      "price": 1250.99,
+      "operating_system": "Android",
+      "release_date": "07-12-2025",
+      "image_url": "photo"
+    },
+    {
+      "id": 4,
+      "name": "Portátil Ultraligero",
+      "brand": "Portátil de 14 pulgadas con procesador i7 y 16GB de RAM.",
+      "price": 1250.99,
+      "operating_system": "Android",
+      "release_date": "07-12-2025",
+      "image_url": "photo"
+    }
+  ]
+}
