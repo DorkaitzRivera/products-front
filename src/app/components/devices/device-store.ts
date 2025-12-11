@@ -18,8 +18,8 @@ export const DeviceStore = signalStore(
   { providedIn: 'root' },
   withState(initialState),
   withComputed(({ devices }) => ({
-    itemNameCount: computed(() => devices().length),
-    sortedItemName: computed(() => [...devices()].sort((a, b) => a.name.localeCompare(b.name)))
+    devicesCount: computed(() => devices().length),
+    sortedDevices: computed(() => [...devices()].sort((a, b) => a.name.localeCompare(b.name)))
 })),
   withMethods((store) => ({
     setDevices(devices: Device[]) {

@@ -20,14 +20,14 @@ export class DeviceService {
     this.store.setLoading(true);
 
     return this.http.get<Device[]>(this.productsUrl).pipe(
-      tap(devices => this.store.setProducts(devices))
+      tap(devices => this.store.setDevices(devices))
     )
   }
 
   addDevice(device: Omit<Device, 'id'>): Observable<Device> {
     return this.http.post<Device>(this.productsUrl, device).pipe(
       map(device => {
-        this.store.addProduct(device);
+        this.store.addDevice(device);
         return device
       })
     )

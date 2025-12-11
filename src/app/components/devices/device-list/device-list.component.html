@@ -1,1 +1,11 @@
-<p>device-list works!</p>
+@if (hasDevices()) {
+    <div>
+        <ul>
+            @for (device of devices(); track device.id) {
+                <li>
+                    <a [routerLink]="['/products', device.id]">{{ device.name }} - {{ device.price | currency: 'EUR'}}</a>
+                </li>
+            }
+        </ul>
+    </div>
+}
