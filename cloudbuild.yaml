@@ -3,13 +3,13 @@ steps:
     args: 
       - 'build'
       - '-t'
-      - 'europe-docker.pkg.dev/squad-b1/reskilling-hackathon-frontend/product-front:$SHORT_SHA'
+      - 'europe-southwest1-docker.pkg.dev/squad-a1/reskilling-hackathon-frontend/product-front:$SHORT_SHA'
       - '.'
 
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'push'
-      - 'europe-docker.pkg.dev/squad-b1/reskilling-hackathon-frontend/product-front:$SHORT_SHA'
+      - 'europe-southwest1-docker.pkg.dev/squad-a1/reskilling-hackathon-frontend/product-front:$SHORT_SHA'
 
   - name: 'gcr.io/cloud-builders/gcloud'
     id: Deploy
@@ -18,7 +18,7 @@ steps:
       'deploy', 
       'frontend', 
       '--image', 
-      'europe-docker.pkg.dev/squad-b1/reskilling-hackathon-frontend/product-front:$SHORT_SHA',
+      'europe-southwest1-docker.pkg.dev/squad-a1/reskilling-hackathon-frontend/product-front:$SHORT_SHA',
       '--region', 
       'europe-southwest1', 
       '--service-account', 
