@@ -1,0 +1,39 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: 
+      - 'build'
+      - '-t'
+      - 'europe-docker.pkg.dev/squad-b1/reskilling-hackathon-frontend/product-front:$SHORT_SHA'
+      - '.'
+
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'push'
+      - 'europe-docker.pkg.dev/squad-b1/reskilling-hackathon-frontend/product-front:$SHORT_SHA'
+
+  - name: 'gcr.io/cloud-builders/gcloud'
+    id: Deploy
+    args: [
+      'run', 
+      'deploy', 
+      'frontend', 
+      '--image', 
+      'europe-docker.pkg.dev/squad-b1/reskilling-hackathon-frontend/product-front:$SHORT_SHA',
+      '--region', 
+      'europe-southwest1', 
+      '--service-account', 
+      'hackaton-sa@squad-b1.iam.gserviceaccount.com',
+      '--port',
+      '8080'
+
+
+    ]
+
+options:
+  logging: CLOUD_LOGGING_ONLY
+
+
+
+
+
+ 
